@@ -7,4 +7,5 @@ db.sqlite3
 *.log
 venv/
 *.html text eol=lf
-*.html binary
+*.html
+
