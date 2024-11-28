@@ -5,10 +5,10 @@ from .forms import NewForm, SingupForm
 
 def list_book(request):
     book = Book.objects.all()
-    return render(request,'list_book.html',{'book':book})
+    return render(request,'library/list_book.html',{'book':book})
 
 def create_book(request):
-    return render(request,'create_book')
+    return render(request,'library/create_book')
 
 
 def form_book(request):
@@ -20,7 +20,7 @@ def form_book(request):
             return redirect('list_book')
     else:
         form = NewForm()
-    return render(request,'create_book.html',context={'form':form})
+    return render(request,'library/create_book.html',context={'form':form})
 
 
 def signup_view(request):
@@ -31,11 +31,11 @@ def signup_view(request):
             return redirect('login')
     else:
         form = SingupForm()
-    return render(request, 'signup.html', {'form': form})
+    return render(request, 'library/signup.html', {'form': form})
 
 def book_details(request,id):
     book = get_object_or_404(Book,id=id)
-    return render(request,'details_book.html',{'book':book})
+    return render(request,'library/details_book.html',{'book':book})
 
 
 def update_book(request,id):
@@ -47,20 +47,20 @@ def update_book(request,id):
             return redirect('list_book')
     else:
         form = NewForm(instance=book)
-    return render(request,'update_book.html',{'book':book,'form':form})
+    return render(request,'library/update_book.html',{'book':book,'form':form})
 
 def delet_book(request,id):
     book = get_object_or_404(Book,id=id)
     if request.method == 'POST':
         book.delete()
         return redirect('list_book')
-    return render(request,'delet_book.html',{'book':book})
+    return render(request,'library/delet_book.html',{'book':book})
 
 def contact(request):
-    return render(request,'contact.html')
+    return render(request,'library/contact.html')
 
 def services(request):
-    return render(request,'services.html')
+    return render(request,'library/services.html')
 
 def about(request):
-    return render(request,'about.html')
+    return render(request,'library/about.html')
