@@ -18,6 +18,11 @@
                             <p class="card-text">
                                 <strong>Reg. Date:</strong> {{ item.data_create|date:"F d, Y" }}
                             </p>
+                            {% if item.image %}
+                                <img src="{{ item.image.url }}" alt="{{ item.name }}" class="img-fluid mb-3" style="max-height: 300px; object-fit: cover;">
+                            {% else %}
+                                <p>No image available</p>
+                            {% endif %}
                             <div class="d-grid mt-3">
                                 <a href="{% url 'book_details' item.id %}" class="btn btn-info">Details</a>
                             </div>
@@ -25,7 +30,7 @@
                                 <a href="{% url 'book_update' item.id %}" class="btn btn-info">Update</a>
                             </div>
                             <div class="d-grid mt-3">
-                                <a href="{% url 'book_delet' item.id %}" class="btn btn-info">Delet</a>
+                                <a href="{% url 'book_delet' item.id %}" class="btn btn-info">Delete</a>
                             </div>
                         </div>
                         <div class="card-footer text-muted text-end">

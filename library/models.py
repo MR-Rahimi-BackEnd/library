@@ -11,9 +11,15 @@ class Book(models.Model):
     data_time_mod = models.DateField(auto_now=True)
     user_age = models.IntegerField()
     author = models.ForeignKey('auth.User',on_delete=models.CASCADE)
-    
-    
+    image = models.ImageField(upload_to='book_image/',null=True,blank=True)
     
     
     def __str__(self):
         return f'{self.name}'
+
+class UserProfile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    age = models.IntegerField(null=True, blank=True)
+    
+    def __str__(self):
+        return self.user.username

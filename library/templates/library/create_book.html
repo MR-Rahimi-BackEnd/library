@@ -9,7 +9,7 @@
                     <h3>Create New Book</h3>
                 </div>
                 <div class="card-body">
-                    <form method="POST" novalidate>
+                    <form method="POST" enctype="multipart/form-data" novalidate>
                         {% csrf_token %}
                         {{ form.non_field_errors }}
                         {% for field in form %}

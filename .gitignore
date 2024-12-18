@@ -6,6 +6,4 @@ db.sqlite3
 .env
 *.log
 venv/
-*.html text eol=lf
-*.html
 
